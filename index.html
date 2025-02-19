@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Calculator</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dbeafe;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .nav-links {
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: blue;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Geometry Calculator</h1>
+    <p>Select a shape and enter the required values to calculate the area.</p>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a href="#circle">Circle</a>
+        <a href="#triangle">Triangle</a>
+        <a href="#square">Square</a>
+        <a href="#rectangle">Rectangle</a>
+    </div>
+
+    <div class="container" id="circle">
+        <h2>Circle</h2>
+        <label>Enter Radius:</label>
+        <input type="number" id="circleRadius">
+        <button onclick="calculateCircleArea()">Calculate</button>
+        <p>Area: <span id="circleResult"></span></p>
+    </div>
+
+    <div class="container" id="triangle">
+        <h2>Triangle</h2>
+        <label>Base:</label>
+        <input type="number" id="triangleBase">
+        <label>Height:</label>
+        <input type="number" id="triangleHeight">
+        <button onclick="calculateTriangleArea()">Calculate</button>
+        <p>Area: <span id="triangleResult"></span></p>
+    </div>
+
+    <div class="container" id="square">
+        <h2>Square</h2>
+        <label>Side Length:</label>
+        <input type="number" id="squareSide">
+        <button onclick="calculateSquareArea()">Calculate</button>
+        <p>Area: <span id="squareResult"></span></p>
+    </div>
+
+    <div class="container" id="rectangle">
+        <h2>Rectangle</h2>
+        <label>Length:</label>
+        <input type="number" id="rectangleLength">
+        <label>Width:</label>
+        <input type="number" id="rectangleWidth">
+        <button onclick="calculateRectangleArea()">Calculate</button>
+        <p>Area: <span id="rectangleResult"></span></p>
+    </div>
+
+    <script>
+        function calculateCircleArea() {
+            let radius = document.getElementById('circleRadius').value;
+            if (radius > 0) {
+                let area = Math.PI * radius * radius;
+                document.getElementById('circleResult').innerText = area.toFixed(2);
+            } else {
+                alert("Please enter a valid radius!");
+            }
+        }
+
+        function calculateTriangleArea() {
+            let base = document.getElementById('triangleBase').value;
+            let height = document.getElementById('triangleHeight').value;
+            if (base > 0 && height > 0) {
+                let area = 0.5 * base * height;
+                document.getElementById('triangleResult').innerText = area.toFixed(2);
+            } else {
+                alert("Please enter valid values!");
+            }
+        }
+
+        function calculateSquareArea() {
+            let side = document.getElementById('squareSide').value;
+            if (side > 0) {
+                let area = side * side;
+                document.getElementById('squareResult').innerText = area.toFixed(2);
+            } else {
+                alert("Please enter a valid side length!");
+            }
+        }
+
+        function calculateRectangleArea() {
+            let length = document.getElementById('rectangleLength').value;
+            let width = document.getElementById('rectangleWidth').value;
+            if (length > 0 && width > 0) {
+                let area = length * width;
+                document.getElementById('rectangleResult').innerText = area.toFixed(2);
+            } else {
+                alert("Please enter valid dimensions!");
+            }
+        }
+    </script>
+
+</body>
+</html>
